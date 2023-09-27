@@ -13,12 +13,18 @@ export const User = () => {
 
     const [totalreqdata, settotalreqdata] = useState([]);
     function handleonclick(element, togglereq, settogglereq) {
+        if (togglereq === true) {
+            settotalreqdata((pre) => {
+                const holder = [...pre, element];
+                return holder;
+            });
+        } else {
+            settotalreqdata((pre) => {
+                const holder = pre.filter((el) => el.email !== element.email);
+                return holder;
+            });
+        }
         settogglereq((pre) => !pre);
-        settotalreqdata((pre) => {
-            const holder = [...pre, element];
-
-            return holder;
-        });
     }
 
     return (

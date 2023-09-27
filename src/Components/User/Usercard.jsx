@@ -12,13 +12,13 @@ export const Usercard = (props) => {
         <>
             <Card className="m-3  text-light" style={{ width: '18rem', backgroundColor: 'gray' }}>
                 <Card.Img variant="top" src={picture.medium} />
-                <Card.Body>
+                <Card.Body className="text-center">
                     <Card.Title>{`${name.title} ${name.first} ${name.last}`}</Card.Title>
                     <Card.Text>{`Gender : ${gender}`}</Card.Text>
 
                     <Card.Text>{shownumber ? phone : <Button onClick={() => setshownumber((pre) => !pre)}>Show Number</Button>}</Card.Text>
                     <Link to={`/user/${email}`} state={props.data}>
-                        <Button className="d-block my-3"> View Details</Button>
+                        <Button className="d-block m-auto my-3"> View Details</Button>
                     </Link>
                     <Button variant="primary" onClick={() => props.handleonclick(props, togglereq, settogglereq)}>
                         {togglereq ? 'Add Friend' : 'Cancel Req'}

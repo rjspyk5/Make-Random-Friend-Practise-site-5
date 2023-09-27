@@ -2,8 +2,8 @@ import React from 'react';
 
 export const Totalcount = (props) => {
     return (
-        <div className="text-light text-center">
-            <h1>Total sented Req : {props.total.length} </h1>
+        <div style={{ backgroundColor: '#4c4c4c' }} className="text-light text-center sticky-top">
+            <h1>Total Req sent: {props.total.length} </h1>
         </div>
     );
 };
