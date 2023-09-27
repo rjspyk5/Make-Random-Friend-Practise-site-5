@@ -1,13 +1,12 @@
 import React from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+
 import Modal from 'react-bootstrap/Modal';
 
 export const Userdetails = () => {
     const userEmail = useParams().userdetails;
     const data = useLocation().state;
     const personDetails = data.find((el) => el.email === userEmail);
-    console.log(data);
     const { gender, email, name, picture, registered, location, phone } = personDetails;
     console.log(personDetails);
     return (
@@ -27,10 +26,6 @@ export const Userdetails = () => {
                     <h4>{`State: ${location.state}`}</h4>
                     <h4>{`Country: ${location.country}`}</h4>
                 </Modal.Body>
-
-                <Modal.Footer className=" justify-content-center ">
-                    <Button variant="primary">Add Friend</Button>
-                </Modal.Footer>
             </Modal.Dialog>
         </div>
     );

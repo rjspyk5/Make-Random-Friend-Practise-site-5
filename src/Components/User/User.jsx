@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Usercard } from './Usercard';
 import { Totalcount } from './Totalcount';
+import { useLocation } from 'react-router-dom';
 
 export const User = () => {
     const [data, setdata] = useState([]);
 
+    let url;
+    useLocation().pathname === '/user' ? (url = 'https://randomuser.me/api/?results=200') : (url = 'https://randomuser.me/api/?results=12');
     useEffect(() => {
-        fetch('https://randomuser.me/api/?results=51')
+        fetch(url)
             .then((res) => res.json())
             .then((r) => setdata(r.results));
-    }, []);
+    }, [url]);
 
     const [totalreqdata, settotalreqdata] = useState([]);
     function handleonclick(element, togglereq, settogglereq) {
