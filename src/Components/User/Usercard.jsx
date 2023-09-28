@@ -2,13 +2,23 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-
+import { saveDataToLocalStorage } from '../LocalDataBase/LocalDatabase';
 export const Usercard = (props) => {
     const { picture, phone, gender, name, email } = props;
+    const fullname = `${name.title} ${name.first} ${name.last}`;
     const [togglereq, settogglereq] = useState(true);
     const [shownumber, setshownumber] = useState(false);
     const [sendmessage, setsendmessage] = useState(false);
-    const textarea = <textarea name="" id="" cols="30" rows="5" onClick={() => setsendmessage(true)}></textarea>;
+    const [message, setmessage] = useState();
+    const [mszbtn, setmszbtn] = useState(false);
+
+    const handleOnChange = (e) => setmessage(e.target.value);
+
+    const handleOnMessageClick = () => {
+        setsendmessage((pre) => !pre);
+        setmszbtn((pre) => !pre);
+        mszbtn && saveDataToLocalStorage(fullname, email, message);
+    };
 
     return (
         <>
@@ -18,7 +28,7 @@ export const Usercard = (props) => {
                     <Card.Title>{`${name.title} ${name.first} ${name.last}`}</Card.Title>
                     <Card.Text>{`Gender : ${gender}`}</Card.Text>
                     {sendmessage ? (
-                        textarea
+                        <textarea name="" id="" cols="30" rows="5" value={message} onChange={handleOnChange}></textarea>
                     ) : (
                         <div>
                             <Card.Text>{shownumber ? phone : <Button onClick={() => setshownumber((pre) => !pre)}>Show Number</Button>}</Card.Text>
@@ -30,8 +40,8 @@ export const Usercard = (props) => {
                     <Button variant="primary" onClick={() => props.handleonclick(props, togglereq, settogglereq)}>
                         {togglereq ? 'Add Friend' : 'Cancel Req'}
                     </Button>
-                    <Button onClick={() => setsendmessage((pre) => !pre)} className="ms-1">
-                        Send Message
+                    <Button onClick={handleOnMessageClick} className="ms-1">
+                        {mszbtn ? 'Send Message' : 'Write Message'}
                     </Button>
                 </Card.Body>
             </Card>
