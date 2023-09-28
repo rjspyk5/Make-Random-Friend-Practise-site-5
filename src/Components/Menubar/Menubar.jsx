@@ -14,7 +14,7 @@ export default function Menubar() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
                             <Nav.Link>
-                                <NavLink className="text-decoration-none text-light " to={'/courses'}>
+                                <NavLink className="text-decoration-none text-light " to={'/message'}>
                                     Messages
                                 </NavLink>
                             </Nav.Link>
@@ -26,7 +26,7 @@ export default function Menubar() {
                             </Nav.Link>
 
                             <Nav.Link>
-                                <NavLink className="text-decoration-none text-light " to={'/contact'}>
+                                <NavLink className="text-decoration-none text-light " to={'/signin'}>
                                     Sign In
                                 </NavLink>
                             </Nav.Link>
