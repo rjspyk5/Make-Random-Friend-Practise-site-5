@@ -8,7 +8,7 @@ export const Userdetails = () => {
     const data = useLocation().state;
     const personDetails = data.find((el) => el.email === userEmail);
     const { gender, email, name, picture, registered, location, phone } = personDetails;
-    console.log(personDetails);
+
     return (
         <div className="modal show" style={{ display: 'block', position: 'initial' }}>
             <Modal.Dialog>
