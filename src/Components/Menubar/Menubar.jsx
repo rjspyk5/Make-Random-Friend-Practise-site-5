@@ -7,6 +7,7 @@ import { getDataFromLocalStorage } from '../LocalDataBase/LocalDatabase';
 import { FaFacebookMessenger } from 'react-icons/fa';
 import './Menubar.css';
 import { mszbtnContext } from '../../App';
+import { AiOutlineUsergroupDelete } from 'react-icons/ai';
 export default function Menubar() {
     const [totalmsz, settotalmsz] = useState([]);
     const [sendmszbtn, , dltmszbtn] = useContext(mszbtnContext);
@@ -33,7 +34,7 @@ export default function Menubar() {
                             </Nav.Link>
                             <Nav.Link style={{ display: 'flex' }}>
                                 <NavLink className="text-decoration-none text-light " to={'/user'}>
-                                    All User
+                                    <AiOutlineUsergroupDelete size={30}></AiOutlineUsergroupDelete>
                                 </NavLink>
                             </Nav.Link>
                             <Nav.Link>
