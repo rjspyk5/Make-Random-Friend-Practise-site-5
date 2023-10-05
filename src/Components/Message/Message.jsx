@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { getDataFromLocalStorage, removeDataFromLocalStorage } from '../LocalDataBase/LocalDatabase';
 import { Personmsz } from './Personmsz';
+import { mszbtnContext } from '../../App';
 
 export const Message = () => {
-    const [mszdata, setmszdata] = useState([]);
+    const [mszbtn, setmszbtn, mszdata, setmszdata] = useContext(mszbtnContext);
 
     const handleOnClick = (element) => {
         setmszdata((pre) => {

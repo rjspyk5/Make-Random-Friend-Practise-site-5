@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 
 export const User = () => {
     const [data, setdata] = useState([]);
-
     let url;
     useLocation().pathname === '/user' ? (url = 'https://randomuser.me/api/?results=200') : (url = 'https://randomuser.me/api/?results=12');
     useEffect(() => {

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { saveDataToLocalStorage } from '../LocalDataBase/LocalDatabase';
+import { mszbtnContext } from '../../App';
 export const Usercard = (props) => {
     const { picture, phone, gender, name, email } = props;
     const fullname = `${name.title} ${name.first} ${name.last}`;
@@ -10,10 +11,8 @@ export const Usercard = (props) => {
     const [shownumber, setshownumber] = useState(false);
     const [sendmessage, setsendmessage] = useState(false);
     const [message, setmessage] = useState();
-    const [mszbtn, setmszbtn] = useState(false);
-
+    const [mszbtn, setmszbtn] = useContext(mszbtnContext);
     const handleOnChange = (e) => setmessage(e.target.value);
-
     const handleOnMessageClick = () => {
         setsendmessage((pre) => !pre);
         setmszbtn((pre) => !pre);

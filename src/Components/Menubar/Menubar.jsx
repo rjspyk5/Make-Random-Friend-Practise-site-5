@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -6,11 +6,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import { getDataFromLocalStorage } from '../LocalDataBase/LocalDatabase';
 import { FaFacebookMessenger } from 'react-icons/fa';
 import './Menubar.css';
+import { mszbtnContext } from '../../App';
 export default function Menubar() {
     const [totalmsz, settotalmsz] = useState([]);
+    const [sendmszbtn, , dltmszbtn] = useContext(mszbtnContext);
     useEffect(() => {
         settotalmsz(getDataFromLocalStorage());
-    }, []);
+    }, [sendmszbtn, dltmszbtn]);
     return (
         <div className="sticky-top">
             <Navbar expand="lg" bg="dark" data-bs-theme="dark">
@@ -29,7 +31,7 @@ export default function Menubar() {
                                     )}
                                 </NavLink>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link style={{ display: 'flex' }}>
                                 <NavLink className="text-decoration-none text-light " to={'/user'}>
                                     All User
                                 </NavLink>
