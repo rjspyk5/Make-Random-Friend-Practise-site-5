@@ -4,7 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { getDataFromLocalStorage } from '../LocalDataBase/LocalDatabase';
-
+import { FaFacebookMessenger } from 'react-icons/fa';
+import './Menubar.css';
 export default function Menubar() {
     const [totalmsz, settotalmsz] = useState([]);
 
@@ -21,9 +22,11 @@ export default function Menubar() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
                             <Nav.Link>
-                                <NavLink className="text-decoration-none text-light d-flex" to={'/message'}>
-                                    <p>Message</p>
-                                    <h6 className="mt-1 ms-2">{totalmsz.length}</h6>
+                                <NavLink className="text-decoration-none text-light d-flex " to={'/message'}>
+                                    <FaFacebookMessenger className="MesssengerFullLogoStyle" style={{ marginTop: '-4px' }} size={35}></FaFacebookMessenger>
+                                    <div className="MessengerFloatingMessege">
+                                        <h6> {totalmsz.length}</h6>
+                                    </div>
                                 </NavLink>
                             </Nav.Link>
 

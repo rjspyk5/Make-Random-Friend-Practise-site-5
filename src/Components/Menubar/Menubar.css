@@ -1,0 +1,16 @@
+.MesssengerFullLogoStyle {
+    color: rgb(21, 117, 234);
+    margin-top: '-4px';
+    position: relative;
+}
+.MessengerFloatingMessege {
+    color: white;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    top: -14px;
+    right: 14px;
+}
