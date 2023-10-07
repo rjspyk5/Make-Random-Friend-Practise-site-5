@@ -1,0 +1,14 @@
+.LikeButtonStyle {
+    background-color: transparent;
+    padding: 2px 18px;
+    border-radius: 5px;
+    border: none;
+}
+.LikeButtonStyle:hover {
+    background-color: rgb(244, 244, 255);
+}
+
+.like {
+    margin-right: 5px;
+    margin-bottom: 4px;
+}
