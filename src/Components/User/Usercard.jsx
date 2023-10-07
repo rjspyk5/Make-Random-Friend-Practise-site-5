@@ -6,19 +6,20 @@ import { saveDataToLocalStorage } from '../LocalDataBase/LocalDatabase';
 import { mszbtnContext } from '../../App';
 export const Usercard = (props) => {
     const { picture, phone, gender, name, email } = props;
+
     const fullname = `${name.title} ${name.first} ${name.last}`;
     const [togglereq, settogglereq] = useState(true);
     const [shownumber, setshownumber] = useState(false);
     const [sendmessage, setsendmessage] = useState(false);
     const [message, setmessage] = useState();
     const [mszbtn, setmszbtn] = useContext(mszbtnContext);
+
     const handleOnChange = (e) => setmessage(e.target.value);
     const handleOnMessageClick = () => {
         setsendmessage((pre) => !pre);
         setmszbtn((pre) => !pre);
         mszbtn && saveDataToLocalStorage(fullname, email, message);
     };
-
     return (
         <>
             <Card className="m-3  text-light" style={{ width: '18rem', backgroundColor: 'gray' }}>

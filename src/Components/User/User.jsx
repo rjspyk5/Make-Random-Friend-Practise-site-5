@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Usercard } from './Usercard';
 import { Totalcount } from './Totalcount';
-import { useLocation } from 'react-router-dom';
+import { mszbtnContext } from '../../App';
 
 export const User = () => {
-    const [data, setdata] = useState([]);
-    let url;
-    useLocation().pathname === '/user' ? (url = 'https://randomuser.me/api/?results=200') : (url = 'https://randomuser.me/api/?results=12');
-    useEffect(() => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((r) => setdata(r.results));
-    }, [url]);
-
+    const [mszbtn, setmszbtn, mszdata, setmszdata, data, setdata] = useContext(mszbtnContext);
+    const [seeAllToggleStatus, setseeAllToggleStatus] = useState(false);
     const [totalreqdata, settotalreqdata] = useState([]);
     function handleonclick(element, togglereq, settogglereq) {
         if (togglereq === true) {
@@ -28,13 +21,25 @@ export const User = () => {
         }
         settogglereq((pre) => !pre);
     }
-
+    let dataum;
+    seeAllToggleStatus ? (dataum = [...data]) : (dataum = data.slice(1, 6));
+    const SeeAllText = seeAllToggleStatus ? 'Show less' : 'See All';
     return (
-        <div className="container justify-content-center ps-5">
-            <div>
-                {totalreqdata && <Totalcount total={totalreqdata} />}
-                <div className="d-flex container  flex-wrap">{data && data.map((element, index) => <Usercard key={element.email} data={data} handleonclick={handleonclick} {...element} />)}</div>
+        <>
+            <div className="container justify-content-center ps-5">
+                <div>
+                    {totalreqdata && <Totalcount total={totalreqdata} />}
+                    <div className="d-flex container  flex-wrap">
+                        {dataum && dataum.map((element, index) => <Usercard key={element.email} data={dataum} handleonclick={handleonclick} {...element} />)}
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <div>
+                <button style={{ marginLeft: '78%' }} className="btn text-light" onClick={() => setseeAllToggleStatus((pre) => !pre)}>
+                    {data && SeeAllText}
+                </button>
+            </div>
+        </>
     );
 };
