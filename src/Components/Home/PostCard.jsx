@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './postCard.css';
-import { SlLike } from 'react-icons/sl';
 import { FaRegComment } from 'react-icons/fa';
 import { Comment } from './Comment';
+import { Likebutton } from './Likebutton';
 
 export const PostCard = (props) => {
     const { title, body, id } = props.post;
@@ -11,12 +11,8 @@ export const PostCard = (props) => {
     const EachPerson = data && data.find((el) => el.serialnumber === id);
     const pic = EachPerson && EachPerson.picture.medium;
     const fullname = EachPerson && `${EachPerson.name.title} ${EachPerson.name.first} ${EachPerson.name.last}`;
-    const [like, setlike] = useState(false);
     const [commentClick, setcommentClick] = useState(false);
-    let liked;
-    like ? (liked = { color: 'red' }) : (liked = { color: 'black' });
     const comment = props.comments.filter((el) => id === el.postId);
-
     return (
         <div className="m-3">
             <Card>
@@ -30,17 +26,13 @@ export const PostCard = (props) => {
                     <Card.Text>{body}</Card.Text>
                     <hr />
                     <div className="d-flex w-75 m-auto">
-                        <button className="me-2 LikeButtonStyle w-50 " onClick={() => setlike((pre) => !pre)}>
-                            <SlLike style={liked} className="like" />
-                            <span style={liked}>Like</span>
-                        </button>
+                        <Likebutton />
                         <button className=" LikeButtonStyle w-50" onClick={() => setcommentClick((pre) => !pre)}>
                             <FaRegComment className="mb-1" /> Comment
                         </button>
                     </div>
                     <hr />
-
-                    {commentClick && comment.map((el) => <Comment key={id} comment={el} />)}
+                    {commentClick && comment.map((el, index) => <Comment key={index} datas={data} comment={el} />)}
                 </Card.Body>
             </Card>
         </div>

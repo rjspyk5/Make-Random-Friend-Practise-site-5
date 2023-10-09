@@ -12,3 +12,8 @@
     margin-right: 5px;
     margin-bottom: 4px;
 }
+
+.cardbody {
+    background-color: rgb(220, 220, 220) !important;
+    margin: 10px;
+}
