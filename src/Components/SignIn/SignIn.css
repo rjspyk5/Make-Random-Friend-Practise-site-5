@@ -1,0 +1,40 @@
+NavLink .active {
+    background-color: red;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(1, 1, 1);
+
+    margin-right: 5px;
+}
+.link:active {
+    color: red;
+}
+
+.button {
+    margin-top: 15px;
+    border: 0px;
+    border-radius: 6px;
+    padding: 3px 8px;
+
+    background-color: rgb(53, 159, 53);
+    color: white;
+}
+
+.button:hover {
+    background-color: rgb(7, 192, 7);
+}
+
+.form-size {
+    width: 392px;
+    margin: auto;
+}
+
+.container {
+    max-width: 692px !important;
+}
+
+.twofactordesgin li {
+    margin-bottom: 7px;
+}

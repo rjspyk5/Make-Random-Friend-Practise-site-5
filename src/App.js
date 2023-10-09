@@ -13,6 +13,7 @@ const App = () => {
     const [mszdata, setmszdata] = useState([]);
     const [data, setdata] = useState([]);
     const [posts, setposts] = useState([]);
+    const [comments, setcomments] = useState([]);
     useEffect(() => {
         fetch('https://randomuser.me/api/?results=100')
             .then((res) => res.json())
@@ -20,10 +21,14 @@ const App = () => {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then((res) => res.json())
             .then((r) => setposts(r));
+
+        fetch('https://jsonplaceholder.typicode.com/comments')
+            .then((res) => res.json())
+            .then((r) => setcomments(r));
     }, []);
     data && data.map((el, index) => (el.serialnumber = index + 1));
     return (
-        <mszbtnContext.Provider value={[mszbtn, setmszbtn, mszdata, setmszdata, data, setdata, posts, setposts]}>
+        <mszbtnContext.Provider value={[mszbtn, setmszbtn, mszdata, setmszdata, data, setdata, posts, setposts, comments, setcomments]}>
             <BrowserRouter>
                 <Menubar />
                 <Routes>

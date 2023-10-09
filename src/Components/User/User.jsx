@@ -26,10 +26,10 @@ export const User = () => {
     const SeeAllText = seeAllToggleStatus ? 'Show less' : 'See All';
     return (
         <>
-            <div className="container justify-content-center ps-5">
+            <div>
                 <div>
                     {totalreqdata && <Totalcount total={totalreqdata} />}
-                    <div className="d-flex container  flex-wrap">
+                    <div className="d-flex justify-content-center flex-wrap">
                         {dataum && dataum.map((element, index) => <Usercard key={element.email} data={dataum} handleonclick={handleonclick} {...element} />)}
                     </div>
                 </div>
