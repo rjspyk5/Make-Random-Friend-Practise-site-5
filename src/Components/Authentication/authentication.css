@@ -1,0 +1,13 @@
+.googlesignin {
+    margin-top: 7px;
+    padding: 6px 18px;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0px 1px 2px 1px rgb(174, 174, 174);
+    border: none;
+    outline: none;
+}
+
+.googlesignin:hover {
+    background-color: rgb(222, 221, 221);
+}

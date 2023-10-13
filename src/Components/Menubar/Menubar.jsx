@@ -22,26 +22,22 @@ export default function Menubar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link>
-                                <NavLink className="text-decoration-none text-light d-flex " to={'/message'}>
-                                    <FaFacebookMessenger className="MesssengerFullLogoStyle" style={{ marginTop: '-4px' }} size={35}></FaFacebookMessenger>
-                                    {totalmsz.length !== 0 && (
-                                        <div className="MessengerFloatingMessege">
-                                            <h6> {totalmsz.length}</h6>
-                                        </div>
-                                    )}
-                                </NavLink>
-                            </Nav.Link>
-                            <Nav.Link style={{ display: 'flex' }}>
-                                <NavLink className="text-decoration-none text-light " to={'/user'}>
-                                    <AiOutlineUsergroupDelete size={30}></AiOutlineUsergroupDelete>
-                                </NavLink>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <NavLink className="text-decoration-none text-light " to={'/signin'}>
-                                    Sign In
-                                </NavLink>
-                            </Nav.Link>
+                            <NavLink className="text-decoration-none text-light d-flex mx-2 navlink" to={'/message'}>
+                                <FaFacebookMessenger className="MesssengerFullLogoStyle" size={35} />
+                                {totalmsz.length !== 0 && (
+                                    <div className="MessengerFloatingMessege">
+                                        <h6> {totalmsz.length}</h6>
+                                    </div>
+                                )}
+                            </NavLink>
+
+                            <NavLink className="text-decoration-none text-light mx-2 navlink" to={'/user'}>
+                                <AiOutlineUsergroupDelete size={30} />
+                            </NavLink>
+
+                            <NavLink className="text-decoration-none text-light mx-2 navlink" to={'/signin'}>
+                                Sign In
+                            </NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

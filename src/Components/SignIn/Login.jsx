@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './SignIn.css';
 import { NavLink } from 'react-router-dom';
 import { Twofactor } from './Twofactor';
+import { Authentication } from '../Authentication/Authentication';
+
 export const Login = () => {
     const [login, setlogin] = useState(true);
     const [twoFactorStatus, settwoFactorStatus] = useState(false);
@@ -15,8 +17,8 @@ export const Login = () => {
             <div className="form-size" action="">
                 {login ? (
                     <div>
-                        Email <input className=" form-control" type="email" name="" id="" />
-                        Password <input className=" form-control" type="password" name="" id="" />
+                        Email <input className=" form-control" type="email" name="email" />
+                        Password <input className=" form-control" type="password" name="password" />
                         <button className="button" type="submit">
                             Log IN
                         </button>
@@ -26,17 +28,18 @@ export const Login = () => {
                 ) : (
                     <div>
                         Name <input className="form-control" type="text" />
-                        Number <input className="form-control" type="number" name="" id="" />
-                        Email <input className="form-control" type="email" name="" id="" />
-                        BirthDate <input className="form-control" type="date" name="" id="" />
-                        NID number <input className="form-control" type="number" name="" id="" />
-                        Password <input className=" form-control" type="password" name="" id="" />
+                        Number <input className="form-control" type="number" name="number" />
+                        Email <input className="form-control" type="email" name="email" />
+                        BirthDate <input className="form-control" type="date" name="birthdate" />
+                        NID number <input className="form-control" type="number" name="nid" />
+                        Password <input className=" form-control" type="password" name="password" />
                         <button className="button" type="submit" onClick={() => settwoFactorStatus((pre) => !pre)}>
                             Next
                         </button>
                     </div>
                 )}
             </div>
+            <Authentication />
             <div className="text-center">
                 {login ? <p>You haven't any account?</p> : <p>Already have a account?</p>}
 
