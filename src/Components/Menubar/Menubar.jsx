@@ -36,7 +36,7 @@ export default function Menubar() {
                             </NavLink>
 
                             <NavLink className="text-decoration-none text-light mx-2 navlink" to={'/signin'}>
-                                Sign In
+                                <button className="btn btn-success">Sign In</button>
                             </NavLink>
                         </Nav>
                     </Navbar.Collapse>
